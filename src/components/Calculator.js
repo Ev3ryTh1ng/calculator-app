@@ -4,6 +4,13 @@ export const Calculator = () => {
     const [number, setNumber] = useState(0);
     const [prevnumber, setprevNumber] = useState(0);
     const [total, setTotal] = useState(0);
+    const [flag, setFlag] = useState(false);
+    useEffect(() => {
+        setNumber(0);
+        setTotal(0);
+        setprevNumber(0);
+        setFlag(false);
+    },[flag]);  
     return (
         <>
             <h1>Basic Calculator</h1>
@@ -24,6 +31,7 @@ export const Calculator = () => {
             <button onClick={() => setTotal((+number / +prevnumber))} className="button-check">Divide</button>
             <button onClick={() => setTotal((+number * +prevnumber))} className="button-check">Multiplication</button>
             <button onClick={() => setTotal((+number - +prevnumber))} className="button-check">Minus</button>
+            <button onClick={() => setFlag(true)} className="button-check">Clear</button>
             </div>
             <p>Result : {total}</p>
         </>
